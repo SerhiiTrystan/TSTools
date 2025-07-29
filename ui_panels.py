@@ -1,19 +1,17 @@
 import bpy
 from .utils import get_uv_maps, get_materials
 
-# Panel for UV and Material management
-class UVMaterialPanel(bpy.types.Panel):
-    bl_label = "UV & Material Manager"
-    bl_idname = "PT_UVMaterialPanel"
+# Panel for UV Map management
+class UVPanel(bpy.types.Panel):
+    bl_label = "UV Map Manager"
+    bl_idname = "PT_UVPanel"
     bl_space_type = 'VIEW_3D'
     bl_region_type = 'UI'
     bl_category = 'UV & Material'
     
     def draw(self, context):
         layout = self.layout
-        
-        # UV Map Section
-        layout.label(text="UV Map Management")
+        layout.label(text="UV Map Management", icon='UV')
         
         # Dynamic UV Map list
         layout.prop(context.scene, "uv_map_selector", text="UV Maps")
@@ -22,12 +20,22 @@ class UVMaterialPanel(bpy.types.Panel):
         layout.operator("object.uv_map_set_active", text="Set Active UV Map")
         layout.operator("object.uv_map_delete", text="Delete Selected UV Map")
         
-        # New UV Map creation
-        layout.prop(context.scene, "new_uv_map_name", text="New UV Map")
+        # New UV Map creation and renaming
+        layout.prop(context.scene, "new_uv_map_name", text="UV Map Name")
         layout.operator("object.uv_map_create", text="Create New UV Map")
-        
-        # Material Section
-        layout.label(text="TSMaterial", icon='MATERIAL')
+        layout.operator("object.uv_map_rename", text="Rename Active UV Map")
+
+# Panel for Material management
+class MaterialPanel(bpy.types.Panel):
+    bl_label = "TSMaterial"
+    bl_idname = "PT_MaterialPanel"
+    bl_space_type = 'VIEW_3D'
+    bl_region_type = 'UI'
+    bl_category = 'UV & Material'
+    
+    def draw(self, context):
+        layout = self.layout
+        layout.label(text="Material Management", icon='MATERIAL')
         
         # Toggle for material list scope
         layout.prop(context.scene, "show_all_materials", text="Show All Scene Materials")

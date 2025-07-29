@@ -5,11 +5,11 @@ from . import operators, ui_panels
 # Add-on metadata
 bl_info = {
     "name": "TST",
-    "author": "GROK and TS",
-    "version": (0, 5),
+    "author": "Grok and TS",
+    "version": (0, 9),
     "blender": (4, 5, 0),
     "location": "View3D > N-Panel > UV & Material Manager",
-    "description": "Manages UV Maps and Materials",
+    "description": "Manages UV Maps and Materials for selected objects",
     "category": "Object",
 }
 
@@ -18,10 +18,12 @@ classes = (
     operators.UVMapSetActiveOperator,
     operators.UVMapDeleteOperator,
     operators.UVMapCreateOperator,
+    operators.UVMapRenameOperator,
     operators.MaterialDeleteOperator,
     operators.MaterialSelectOperator,
     operators.MaterialApplyOperator,
-    ui_panels.UVMaterialPanel,
+    ui_panels.UVPanel,
+    ui_panels.MaterialPanel,
 )
 
 # Register function
@@ -52,8 +54,8 @@ def register():
     )
     # Add property for new UV Map name
     bpy.types.Scene.new_uv_map_name = bpy.props.StringProperty(
-        name="New UV Map Name",
-        description="Name for the new UV Map",
+        name="UV Map Name",
+        description="Name for creating or renaming a UV Map",
         default="UVMap_New"
     )
 

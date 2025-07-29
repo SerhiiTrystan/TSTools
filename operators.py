@@ -61,6 +61,23 @@ class UVMapCreateOperator(bpy.types.Operator):
         self.report({'INFO'}, f"Created UV Map '{uv_map_name}'")
         return {'FINISHED'}
 
+# Operator to rename active UV Map
+class UVMapRenameOperator(bpy.types.Operator):
+    bl_idname = "object.uv_map_rename"
+    bl_label = "Rename Active UV Map"
+    
+    def execute(self, context):
+        new_name = context.scene.new_uv_map_name
+        if not new_name:
+            self.report({'ERROR'}, "UV Map name cannot be empty")
+            return {'CANCELLED'}
+        
+        for obj in context.selected_objects:
+            if obj.type == 'MESH' and obj.data.uv_layers.active:
+                obj.data.uv_layers.active.name = new_name
+        self.report({'INFO'}, f"Renamed active UV Map to '{new_name}'")
+        return {'FINISHED'}
+
 # Operator to delete selected material
 class MaterialDeleteOperator(bpy.types.Operator):
     bl_idname = "object.material_delete"
