@@ -7,7 +7,7 @@ class UVPanel(bpy.types.Panel):
     bl_idname = "PT_UVPanel"
     bl_space_type = 'VIEW_3D'
     bl_region_type = 'UI'
-    bl_category = 'UV & Material'
+    bl_category = 'TST'
     
     def draw(self, context):
         layout = self.layout
@@ -31,7 +31,7 @@ class MaterialPanel(bpy.types.Panel):
     bl_idname = "PT_MaterialPanel"
     bl_space_type = 'VIEW_3D'
     bl_region_type = 'UI'
-    bl_category = 'UV & Material'
+    bl_category = 'TST'
     
     def draw(self, context):
         layout = self.layout
