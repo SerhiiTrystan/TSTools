@@ -3,7 +3,7 @@ from .utils import get_uv_maps, get_materials
 
 # Panel for UV Map management
 class UVPanel(bpy.types.Panel):
-    bl_label = "UV Map Manager"
+    bl_label = "TS UV "
     bl_idname = "PT_UVPanel"
     bl_space_type = 'VIEW_3D'
     bl_region_type = 'UI'
