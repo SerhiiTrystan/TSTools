@@ -47,3 +47,4 @@ class MaterialPanel(bpy.types.Panel):
         layout.operator("object.material_delete", text="Delete Selected Material")
         layout.operator("object.material_select_objects", text="Select Objects with Material")
         layout.operator("object.material_apply", text="Apply Material to Selected")
+        layout.operator("object.material_clear", text="Clear Material")

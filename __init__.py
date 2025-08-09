@@ -22,6 +22,7 @@ classes = (
     operators.MaterialDeleteOperator,
     operators.MaterialSelectOperator,
     operators.MaterialApplyOperator,
+    operators.MaterialClearFromOBJ,
     ui_panels.UVPanel,
     ui_panels.MaterialPanel,
 )

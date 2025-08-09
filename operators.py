@@ -128,3 +128,15 @@ class MaterialApplyOperator(bpy.types.Operator):
                     obj.material_slots[0].material = material
         self.report({'INFO'}, f"Applied material '{mat_name}' to selected objects")
         return {'FINISHED'}
+class MaterialClearFromOBJ(bpy.types.Operator):
+    bl_idname = "object.material_clear" 
+    bl_label = "Clear material from object"
+
+    def execute(self, context):
+        for obj in context.selected_objects:
+            if obj.type == 'MESH':
+              # Delete all material from slots
+                obj.data.materials.clear()
+        self.report({'INFO'}, f"Material deleted from {obj.name} objects")
+        return {'FINISHED'}  
+        
