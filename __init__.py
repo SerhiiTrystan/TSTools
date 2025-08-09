@@ -6,7 +6,7 @@ from . import operators, ui_panels
 bl_info = {
     "name": "TST",
     "author": "Grok and TS",
-    "version": (0, 9),
+    "version": (1, 0),
     "blender": (4, 5, 0),
     "location": "View3D > N-Panel > UV & Material Manager",
     "description": "Manages UV Maps and Materials for selected objects",

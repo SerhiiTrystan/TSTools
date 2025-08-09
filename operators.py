@@ -131,7 +131,7 @@ class MaterialApplyOperator(bpy.types.Operator):
 class MaterialClearFromOBJ(bpy.types.Operator):
     bl_idname = "object.material_clear" 
     bl_label = "Clear material from object"
-
+    bl_options = {'REGISTER', 'UNDO'}
     def execute(self, context):
         for obj in context.selected_objects:
             if obj.type == 'MESH':
