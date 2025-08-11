@@ -26,7 +26,7 @@ class UVPanel(bpy.types.Panel):
         layout.operator("object.uv_map_rename", text="Rename Active UV Map")
 
 # Panel for Material management
-class MaterialPanel(bpy.types.Panel):
+class MaterialPanel(bpy.types.Panel)
     bl_label = "TSMaterial"
     bl_idname = "PT_MaterialPanel"
     bl_space_type = 'VIEW_3D'
@@ -48,3 +48,21 @@ class MaterialPanel(bpy.types.Panel):
         layout.operator("object.material_select_objects", text="Select Objects with Material")
         layout.operator("object.material_apply", text="Apply Material to Selected")
         layout.operator("object.material_clear", text="Clear Material")
+
+class BakingPanel(bpy.types.Pane)
+    bl_label = "TSBake"
+    bl_idname = "PT_BakingPanel"
+    bl_space_type = 'VIEW_3D'
+    bl_region_type = 'UI'
+    bl_category = 'TST'
+
+    def draw(self, context):
+        layout = self.layout
+        row = layout.row()
+        layout.label(text="Baking Tools", icon='CAMERA')
+
+        row.operator("object.bake_ao", text="Bake")
+        row.operator("object.fix_ao", text="Fixing Mod")
+    
+
+
